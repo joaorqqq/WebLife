@@ -19,6 +19,7 @@ export interface InteractiveEvent {
 }
 
 export interface SocialStats {
+  isActive: boolean;
   followers: number;
   isVerified: boolean;
   isBanned: boolean;

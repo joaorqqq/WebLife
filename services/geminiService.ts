@@ -35,12 +35,12 @@ export const generateFamily = async (lastName: string, country: string) => {
   }
 };
 
-export const generateSocialPostResult = async (platform: string, followers: number) => {
+export const generateSocialPostResult = async (platform: string, followers: number, contentType: string = 'post') => {
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
-    contents: `O usuário postou um conteúdo no ${platform}. Ele tem ${followers} seguidores. 
-    Gere um título criativo para o post/vídeo e o resultado (ganho de seguidores, curtidas e dinheiro). 
-    Seja engraçado e use gírias da internet brasileira.`,
+    contents: `O usuário postou um(a) ${contentType} no ${platform}. Ele tem ${followers} seguidores. 
+    Gere um título criativo e o resultado (ganho de seguidores, curtidas e dinheiro). 
+    Seja engraçado e use gírias da internet brasileira. Se for Pornhub ou OnlyFans, seja picante mas mantenha o tom de jogo.`,
     config: {
       responseMimeType: "application/json",
       responseSchema: {
